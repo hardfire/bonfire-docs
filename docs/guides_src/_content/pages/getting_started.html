@@ -490,14 +490,8 @@ Now we need create the form itself. We're using a file called <tt>post_form</tt>
 	<h3>New Post</h3>
 	
 	<?php echo form_open(current_url(), 'class="form-horizontal"'); ?>
-	
-	<div class="control-group <?php if (form_error('title')) echo 'error'; ?>">
-		<label for="title">Title</label>
-		<div class="controls">
-			<input type="text" name="title" class="input-xxlarge" value="<?php echo isset($post) ? $post->title : set_value('title'); ?>" />
-			<?php if (form_error('title')) echo '<span class="help-inline">'. form_error('title') .'</span>'; ?>
-		</div>
-	</div>
+
+	<?php echo form_input('title',isset($post) ? $post->title : set_value('title'),'Title'); ?>	
 	
 	<div class="control-group <?php if (form_error('slug')) echo 'error'; ?>">
 		<label for="slug">Slug</label>
